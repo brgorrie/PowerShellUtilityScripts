@@ -43,9 +43,15 @@ param (
 $outputFileName = "All${FileExtension^}Files_" + (Get-Date -Format "yyyy-MM-dd_HH-mm-ss") + ".txt"
 $outputFilePath = Join-Path -Path "C:\git" -ChildPath $outputFileName
 
-# Check if the output directory exists and is writable
+# Check if the output directory exists and is a folder
 if (!(Test-Path -Path "C:\git" -PathType Container)) {
-    Write-Error "Output directory C:\git does not exist."
+    Write-Error "Output directory C:\git does not exist or is not a folder."
+    return
+}
+
+# Check if the output file already exists
+if (Test-Path -Path $outputFilePath) {
+    Write-Warning "Output file $outputFilePath already exists. Appending to the file."
 }
 
 # Concatenate all .cs files in the directory and its subdirectories
@@ -55,5 +61,3 @@ Get-ChildItem -Path . -Recurse -Include "*.$FileExtension" | ForEach-Object {
 }
 
 Write-Host "All .$FileExtension files concatenated and saved to $outputFilePath."
-
-
