@@ -47,13 +47,11 @@ $outputFilePath = Join-Path -Path "C:\git" -ChildPath $outputFileName
 if (!(Test-Path -Path "C:\git" -PathType Container)) {
     Write-Error "Output directory C:\git does not exist."
 }
-if (!(Test-Path -Path "C:\git" -PathType Writeable)) {
-    Write-Error "Output directory C:\git is not writeable."
-}
 
 # Concatenate all .cs files in the directory and its subdirectories
 Get-ChildItem -Path . -Recurse -Include "*.$FileExtension" | ForEach-Object {
-    Get-Content $_.FullName | Out-File -FilePath $outputFilePath -Encoding utf8 -Append -NoNewline -Force
+    Get-Content $_.FullName -Delimiter "`n" | Out-File -FilePath $outputFilePath -Encoding utf8 -Append -NoNewline -Force
+    "`n" | Out-File -FilePath $outputFilePath -Encoding utf8 -Append -NoNewline
 }
 
 Write-Host "All .$FileExtension files concatenated and saved to $outputFilePath."
