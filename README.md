@@ -37,19 +37,31 @@ Optional parameter that specifies the path to the directory containing subdirect
 ### Concatenate-Files.ps1
 
 #### Description
-   This script takes an optional parameter which can specify a file extension, if one isn't specified then *.cs files are what is searched for.
-   The script searches for files with that extension in the current directory and all subdirectories concatenating them together into a *.txt file in the specified output directory.
-   The output file name is in the following format All[FileExtension]Files_YYYY-MM-DD_HH-mm-ss.txt for example AllCsFiles_2023-02-25_22-50-14.txt
+This script takes three optional parameters:
+  - FileExtension: Specifies the file extension to search for and concatenate. If not specified, then the script defaults to "*.cs" files.
+  - OutputDirectory: Specifies the output directory for the concatenated file. If not specified, then the default directory is "C:\git".
+  - SearchDirectory: Specifies the directory to search for files with the specified extension. If not specified, then the current directory is used.
+
+The script searches for files with the specified extension in the specified directory and all subdirectories, concatenating them together into a \*.txt file in the specified output directory. The output file name is in the following format: All[FileExtension]Files_YYYY-MM-DD_HH-mm-ss.txt, for example, AllCsFiles_2023-02-25_22-50-14.txt.
 
 #### Parameter FileExtension
-   Optional parameter that specifies the file extension to search for and concatenate.  If not specified then the script defaults to *.cs files. 
-   
+Optional parameter that specifies the file extension to search for and concatenate. If not specified, then the script defaults to "*.cs" files.
+
 #### Parameter OutputDirectory
-   Optional parameter that specifies the output directory for the concatenated file. If not specified then the default directory is C:\git.
-   
-#### Example useage to concatenate all *.cs files in a repo
+Optional parameter that specifies the output directory for the concatenated file. If not specified, then the default directory is "C:\git".
+
+#### Parameter SearchDirectory
+Optional parameter that specifies the directory to search for files with the specified extension. If not specified, then the current directory is used.
+
+#### Example usage to concatenate all *.cs files in a repo with no parameters
 ```
-   PS C:\> cd c:\git\DiceRoller
-   PS C:\git\DiceRoller> .\PowerShellUtilityScripts\Scripts\Concetenate-Files.ps1 -FileExtension cs -OutputDirectory C:\output
-```   
-	
+PS C:\> cd c:\git\DiceRoller
+PS C:\git\DiceRoller> C:\git\PowerShellUtilityScripts\Scripts\Concetenate-Files.ps1 -FileExtension cs 
+```
+
+#### Example useage with parameters
+```
+PS C:\> cd c:\git\PowerShellUtilityScripts\Scripts\
+PS C:\git\PowerShellUtilityScripts\Scripts> .\Concetenate-Files.ps1 -FileExtension cs -OutputDirectory C:\output -SearchDirectory C:\git\DiceRoller
+```
+
