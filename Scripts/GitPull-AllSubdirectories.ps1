@@ -92,3 +92,4 @@ foreach ($subDirectory in $subDirectories) {
         Set-Location $currentDirectory
     }
 }
+
