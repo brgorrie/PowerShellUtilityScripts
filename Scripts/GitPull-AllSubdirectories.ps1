@@ -64,24 +64,24 @@ foreach ($subDirectory in $subDirectories) {
         Set-Location -LiteralPath $subDirectory.FullName
 
         # Check if there is a repository to update
-		Write-Host 
-        Write-Host "Checking if $($subDirectory.Name) is a Git repository" 
+		Write-Output 
+        Write-Output "Checking if $($subDirectory.Name) is a Git repository" 
         if (Test-Path -LiteralPath ".git" -PathType Container) {
 
             # Check if there is a remote configured for the repository
             $remote = (git remote -v)
 
-            if ($remote -ne $null -and $remote.Count -gt 0) {
-                Write-Host "Updating $($subDirectory.Name) from $($remote)" 
+            if ($null -ne $remote -and $remote.Count -gt 0) {
+                Write-Output "Updating $($subDirectory.Name) from $($remote)"
                 # Execute git pull if there is a remote configured for the repository
                 git pull
             }
             else {
-                Write-Host "The repository $($subDirectory.Name) has no remote configured."
+                Write-Output "The repository $($subDirectory.Name) has no remote configured."
             }
         }
         else {
-            Write-Host "$($subDirectory.Name) is not a Git repository."
+            Write-Output "$($subDirectory.Name) is not a Git repository."
         }
     }
     catch {
