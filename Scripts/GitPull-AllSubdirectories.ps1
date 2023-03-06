@@ -64,7 +64,7 @@ foreach ($subDirectory in $subDirectories) {
         Set-Location -LiteralPath $subDirectory.FullName
 
         # Check if there is a repository to update
-		Write-Output
+        Write-Output " "
         Write-Output "Checking if $($subDirectory.Name) is a Git repository"
         if (Test-Path -LiteralPath ".git" -PathType Container) {
 
