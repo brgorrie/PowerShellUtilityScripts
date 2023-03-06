@@ -75,4 +75,4 @@ Get-ChildItem -Path $SearchDirectory -Recurse -Include "*.$FileExtension" | ForE
     "`n" | Out-File -FilePath $outputFilePath -Encoding utf8 -Append -NoNewline
 }
 
-Write-Host "All .$FileExtension files in $SearchDirectory and its subdirectories concatenated and saved to $outputFilePath."
+Write-Output "All .$FileExtension files in $SearchDirectory and its subdirectories concatenated and saved to $outputFilePath."
