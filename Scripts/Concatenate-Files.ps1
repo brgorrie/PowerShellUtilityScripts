@@ -12,7 +12,7 @@ The script searches for files with the specified extension in the specified dire
 
 Example usage to concatenate all *.cs files in a repo with no parameters:
 PS C:\> cd c:\git\DiceRoller
-PS C:\git\DiceRoller> .\PowerShellUtilityScripts\Scripts\Concetenate-Files.ps1 -FileExtension cs 
+PS C:\git\DiceRoller> .\PowerShellUtilityScripts\Scripts\Concetenate-Files.ps1 -FileExtension cs
 
 Example useage with parameters:
 PS C:\> cd c:\git\PowerShellUtilityScripts\Scripts\
@@ -29,7 +29,7 @@ Optional parameter that specifies the output directory for the concatenated file
 Optional parameter that specifies the directory to search for files with the specified extension. If not specified, then the current directory is used.
 
 .NOTES
-Author: Brian Gorrie 
+Author: Brian Gorrie
 
 .LICENSE
 Copyright 2023 Brian Gorrie
