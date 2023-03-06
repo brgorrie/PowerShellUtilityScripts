@@ -4,22 +4,22 @@
    Updates Git repositories in subdirectories of the specified directory or the current directory.
 
    .DESCRIPTION
-   This script identifies subdirectories of either the directory passed in or the current directory that are Git repositories 
+   This script identifies subdirectories of either the directory passed in or the current directory that are Git repositories
    and updates them with the latest changes from the upstream remote using `git pull`.
-   
+
    Example useage with no path parameter:
    PS C:\> cd c:\git
    PS C:\git> .\PowerShellUtilityScripts\Scripts\GitPull-AllSubdirectories.ps1
-   
+
    Example useage with a path parameter:
    PS C:\git> cd .\PowerShellUtilityScripts\Scripts\
-   PS C:\git\PowerShellUtilityScripts\Scripts> .\GitPull-AllSubdirectories.ps1 c:\git   
+   PS C:\git\PowerShellUtilityScripts\Scripts> .\GitPull-AllSubdirectories.ps1 c:\git
 
    .PARAMETER path
    Optional parameter that specifies the path to the directory containing subdirectories to check. Defaults to the current directory if no parameters are specified.
 
    .NOTES
-   Author: Brian Gorrie 
+   Author: Brian Gorrie
 
    .LICENSE
    Copyright 2023 Brian Gorrie
